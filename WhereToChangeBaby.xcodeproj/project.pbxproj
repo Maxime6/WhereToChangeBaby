@@ -9,23 +9,31 @@
 /* Begin PBXBuildFile section */
 		AFF6213E23A3D3900095448A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6213D23A3D3900095448A /* AppDelegate.swift */; };
 		AFF6214023A3D3900095448A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6213F23A3D3900095448A /* SceneDelegate.swift */; };
-		AFF6214223A3D3900095448A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6214123A3D3900095448A /* ViewController.swift */; };
 		AFF6214523A3D3900095448A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF6214323A3D3900095448A /* Main.storyboard */; };
 		AFF6214823A3D3900095448A /* WhereToChangeBaby.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AFF6214623A3D3900095448A /* WhereToChangeBaby.xcdatamodeld */; };
 		AFF6214A23A3D3940095448A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFF6214923A3D3940095448A /* Assets.xcassets */; };
 		AFF6214D23A3D3940095448A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF6214B23A3D3940095448A /* LaunchScreen.storyboard */; };
+		AFF6215923A4371E0095448A /* BagsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6215823A4371E0095448A /* BagsListViewController.swift */; };
+		AFF6215B23A437560095448A /* PlacesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6215A23A437560095448A /* PlacesListViewController.swift */; };
+		AFF6215D23A4377D0095448A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6215C23A4377D0095448A /* MapViewController.swift */; };
+		AFF6216023A43A250095448A /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6215E23A43A250095448A /* CustomCollectionViewCell.swift */; };
+		AFF6216123A43A250095448A /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF6215F23A43A250095448A /* CustomCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AFF6213A23A3D3900095448A /* WhereToChangeBaby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereToChangeBaby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF6213D23A3D3900095448A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFF6213F23A3D3900095448A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AFF6214123A3D3900095448A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AFF6214423A3D3900095448A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AFF6214723A3D3900095448A /* WhereToChangeBaby.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WhereToChangeBaby.xcdatamodel; sourceTree = "<group>"; };
 		AFF6214923A3D3940095448A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFF6214C23A3D3940095448A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFF6214E23A3D3940095448A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFF6215823A4371E0095448A /* BagsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagsListViewController.swift; sourceTree = "<group>"; };
+		AFF6215A23A437560095448A /* PlacesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesListViewController.swift; sourceTree = "<group>"; };
+		AFF6215C23A4377D0095448A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AFF6215E23A43A250095448A /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		AFF6215F23A43A250095448A /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +66,52 @@
 		AFF6213C23A3D3900095448A /* WhereToChangeBaby */ = {
 			isa = PBXGroup;
 			children = (
+				AFF6214623A3D3900095448A /* WhereToChangeBaby.xcdatamodeld */,
+				AFF6215423A3D5670095448A /* Model */,
+				AFF6215523A3D5750095448A /* View */,
+				AFF6215623A3D57D0095448A /* Controller */,
+				AFF6215723A3D58A0095448A /* Supporting Files */,
+			);
+			path = WhereToChangeBaby;
+			sourceTree = "<group>";
+		};
+		AFF6215423A3D5670095448A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AFF6215523A3D5750095448A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFF6214323A3D3900095448A /* Main.storyboard */,
+				AFF6215E23A43A250095448A /* CustomCollectionViewCell.swift */,
+				AFF6215F23A43A250095448A /* CustomCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AFF6215623A3D57D0095448A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AFF6215823A4371E0095448A /* BagsListViewController.swift */,
+				AFF6215A23A437560095448A /* PlacesListViewController.swift */,
+				AFF6215C23A4377D0095448A /* MapViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AFF6215723A3D58A0095448A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				AFF6213D23A3D3900095448A /* AppDelegate.swift */,
 				AFF6213F23A3D3900095448A /* SceneDelegate.swift */,
-				AFF6214123A3D3900095448A /* ViewController.swift */,
-				AFF6214323A3D3900095448A /* Main.storyboard */,
 				AFF6214923A3D3940095448A /* Assets.xcassets */,
 				AFF6214B23A3D3940095448A /* LaunchScreen.storyboard */,
 				AFF6214E23A3D3940095448A /* Info.plist */,
-				AFF6214623A3D3900095448A /* WhereToChangeBaby.xcdatamodeld */,
 			);
-			path = WhereToChangeBaby;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +175,7 @@
 				AFF6214D23A3D3940095448A /* LaunchScreen.storyboard in Resources */,
 				AFF6214A23A3D3940095448A /* Assets.xcassets in Resources */,
 				AFF6214523A3D3900095448A /* Main.storyboard in Resources */,
+				AFF6216123A43A250095448A /* CustomCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,9 +187,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFF6214823A3D3900095448A /* WhereToChangeBaby.xcdatamodeld in Sources */,
-				AFF6214223A3D3900095448A /* ViewController.swift in Sources */,
+				AFF6216023A43A250095448A /* CustomCollectionViewCell.swift in Sources */,
+				AFF6215D23A4377D0095448A /* MapViewController.swift in Sources */,
 				AFF6213E23A3D3900095448A /* AppDelegate.swift in Sources */,
 				AFF6214023A3D3900095448A /* SceneDelegate.swift in Sources */,
+				AFF6215B23A437560095448A /* PlacesListViewController.swift in Sources */,
+				AFF6215923A4371E0095448A /* BagsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WC244SYFG3;
-				INFOPLIST_FILE = WhereToChangeBaby/Info.plist;
+				INFOPLIST_FILE = "WhereToChangeBaby/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,7 +356,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WC244SYFG3;
-				INFOPLIST_FILE = WhereToChangeBaby/Info.plist;
+				INFOPLIST_FILE = "WhereToChangeBaby/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

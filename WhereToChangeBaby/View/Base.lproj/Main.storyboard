@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dLC-sa-nzZ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4P3-yp-vdD">
+            <objects>
+                <tabBarController id="dLC-sa-nzZ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lpa-8v-gFo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Cw7-qX-C1m" kind="relationship" relationship="viewControllers" id="DTC-fE-h4O"/>
+                        <segue destination="D7Q-cG-y2M" kind="relationship" relationship="viewControllers" id="Tb6-I8-LXe"/>
+                        <segue destination="SBl-WN-eFs" kind="relationship" relationship="viewControllers" id="WlD-g1-nrh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xvf-F4-tjT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1112" y="-348"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AbB-Hm-lWN">
+            <objects>
+                <navigationController id="Cw7-qX-C1m" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="mappin.and.ellipse" catalog="system" id="UPx-Hc-nR0"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FK9-Mu-pqb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AQi-nk-IuR" kind="relationship" relationship="rootViewController" id="bqD-rs-vv8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m15-sF-ci7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-46" y="-1042"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="1wO-Yz-RU2">
+            <objects>
+                <viewController id="AQi-nk-IuR" customClass="MapViewController" customModule="WhereToChangeBaby" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c2c-Nw-Dmx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GDi-gE-KoG">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GDi-gE-KoG" firstAttribute="top" secondItem="Mkl-hd-gCL" secondAttribute="top" id="CvG-mb-8Sx"/>
+                            <constraint firstItem="Mkl-hd-gCL" firstAttribute="bottom" secondItem="GDi-gE-KoG" secondAttribute="bottom" id="GPs-Wy-EGL"/>
+                            <constraint firstItem="GDi-gE-KoG" firstAttribute="leading" secondItem="Mkl-hd-gCL" secondAttribute="leading" id="h9T-sM-Mw9"/>
+                            <constraint firstItem="Mkl-hd-gCL" firstAttribute="trailing" secondItem="GDi-gE-KoG" secondAttribute="trailing" id="xXz-yo-IK0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mkl-hd-gCL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="24d-80-Xfy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pt8-1s-Wf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943" y="-1043"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Fva-UN-6jW">
+            <objects>
+                <navigationController id="D7Q-cG-y2M" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="rectangle.grid.1x2" catalog="system" id="NBD-p1-JRM">
+                        <color key="badgeColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FLW-EW-ZwG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KYm-bz-K4T" kind="relationship" relationship="rootViewController" id="LqP-jl-AzO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbB-fO-mkr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-46" y="-348"/>
+        </scene>
+        <!--Places List View Controller-->
+        <scene sceneID="jin-24-GDw">
+            <objects>
+                <viewController id="KYm-bz-K4T" customClass="PlacesListViewController" customModule="WhereToChangeBaby" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HGc-5I-JBw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="hla-6F-ruz"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="z1y-5b-XQR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cVy-9k-YkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="942" y="-348"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DGI-fM-D0A">
+            <objects>
+                <navigationController id="SBl-WN-eFs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="bag" catalog="system" id="BTu-U8-bYs"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nhm-Kj-8xq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5F8-aR-a5I" kind="relationship" relationship="rootViewController" id="caw-s1-4qE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Djq-jm-z9V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-46" y="398"/>
+        </scene>
+        <!--Bags List View Controller-->
+        <scene sceneID="awp-Kq-Kek">
+            <objects>
+                <viewController id="5F8-aR-a5I" customClass="BagsListViewController" customModule="WhereToChangeBaby" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y16-6f-Ccn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lX-Ri-d5M">
+                                <rect key="frame" x="141.5" y="758" width="131" height="35"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="17"/>
+                                <state key="normal" title="Créer mon sac">
+                                    <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0qJ-fm-KG0">
+                                <rect key="frame" x="20" y="108" width="374" height="630"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ben-Yg-P26">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5F8-aR-a5I" id="ush-JE-cuH"/>
+                                    <outlet property="delegate" destination="5F8-aR-a5I" id="nsK-Zv-ZNB"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0qJ-fm-KG0" firstAttribute="leading" secondItem="CIP-RA-t04" secondAttribute="leading" constant="20" id="0ri-ZW-buG"/>
+                            <constraint firstItem="CIP-RA-t04" firstAttribute="trailing" secondItem="0qJ-fm-KG0" secondAttribute="trailing" constant="20" id="1lj-M3-5Of"/>
+                            <constraint firstItem="0qJ-fm-KG0" firstAttribute="top" secondItem="CIP-RA-t04" secondAttribute="top" constant="20" id="APj-Hn-V2x"/>
+                            <constraint firstItem="CIP-RA-t04" firstAttribute="bottom" secondItem="0lX-Ri-d5M" secondAttribute="bottom" constant="20" id="LUV-Z2-ot6"/>
+                            <constraint firstItem="0lX-Ri-d5M" firstAttribute="top" secondItem="0qJ-fm-KG0" secondAttribute="bottom" constant="20" id="h0k-Lx-gyp"/>
+                            <constraint firstItem="0lX-Ri-d5M" firstAttribute="top" secondItem="0qJ-fm-KG0" secondAttribute="bottom" constant="20" id="lKO-oF-AjP"/>
+                            <constraint firstItem="0lX-Ri-d5M" firstAttribute="centerX" secondItem="Y16-6f-Ccn" secondAttribute="centerX" id="ldE-lU-5dj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CIP-RA-t04"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="c1P-k9-QwT"/>
+                    <connections>
+                        <outlet property="collectionView" destination="0qJ-fm-KG0" id="E0k-lN-qBC"/>
+                        <outlet property="createNewBagButton" destination="0lX-Ri-d5M" id="043-Cu-nKZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QGQ-wN-lT0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="942" y="398"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bag" catalog="system" width="64" height="64"/>
+        <image name="mappin.and.ellipse" catalog="system" width="58" height="64"/>
+        <image name="rectangle.grid.1x2" catalog="system" width="64" height="50"/>
+    </resources>
+</document>

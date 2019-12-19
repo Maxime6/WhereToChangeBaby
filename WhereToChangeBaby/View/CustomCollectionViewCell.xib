@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bagCell" id="gTV-IL-0wX" customClass="CustomCollectionViewCell" customModule="WhereToChangeBaby" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VDO-g3-R4O">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cP6-JN-K3G">
+                                <rect key="frame" x="5" y="5" width="140" height="140"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cP6-JN-K3G" firstAttribute="leading" secondItem="VDO-g3-R4O" secondAttribute="leading" constant="5" id="0wU-bK-TPt"/>
+                            <constraint firstAttribute="bottom" secondItem="cP6-JN-K3G" secondAttribute="bottom" constant="5" id="Pdy-Lt-7o9"/>
+                            <constraint firstItem="cP6-JN-K3G" firstAttribute="top" secondItem="VDO-g3-R4O" secondAttribute="top" constant="5" id="S3d-ik-4w1"/>
+                            <constraint firstAttribute="trailing" secondItem="cP6-JN-K3G" secondAttribute="trailing" constant="5" id="bVS-jt-MhQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="VDO-g3-R4O" secondAttribute="trailing" id="NxM-98-49h"/>
+                <constraint firstItem="VDO-g3-R4O" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aBY-Y9-tuR"/>
+                <constraint firstItem="VDO-g3-R4O" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jjE-Y4-Mnd"/>
+                <constraint firstAttribute="bottom" secondItem="VDO-g3-R4O" secondAttribute="bottom" id="m1Z-3r-ihC"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="cellView" destination="cP6-JN-K3G" id="HkJ-oo-pKP"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="107"/>
+        </collectionViewCell>
+    </objects>
+</document>
