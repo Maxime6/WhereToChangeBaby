@@ -13,6 +13,10 @@ class BagsListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var createNewBagButton: UIButton!
     
+    // Collectionview parameters
+    private let sectionInsets = UIEdgeInsets(top: 30.0, left: 20.0, bottom: 20.0, right: 20.0)
+    private let itemPerRow: CGFloat = 2
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +26,14 @@ class BagsListViewController: UIViewController {
         let nib = UINib.init(nibName: "CustomCollectionViewCell", bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "bagCell")
 
+        createNewBagButtonSettings()
+    }
+    
+    func createNewBagButtonSettings() {
+        createNewBagButton.layer.borderWidth = 2.0
+        createNewBagButton.layer.cornerRadius = 18.0
+        createNewBagButton.layer.borderColor = CGColor(srgbRed: 175/255, green: 82/255, blue: 222/255, alpha: 1.0)
+        
     }
 
 
@@ -34,7 +46,7 @@ extension BagsListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -45,5 +57,24 @@ extension BagsListViewController: UICollectionViewDataSource {
 
 
 extension BagsListViewController: UICollectionViewDelegate {
+    
+}
+
+extension BagsListViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let paddingSpace = sectionInsets.left * (itemPerRow+1)
+        let availableWidth = collectionView.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemPerRow
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.top
+    }
     
 }

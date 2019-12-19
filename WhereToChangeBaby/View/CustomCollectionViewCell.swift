@@ -25,8 +25,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
         cellView.layer.cornerRadius = 20
         cellView.layer.shadowColor = UIColor(ciColor: .black).cgColor
         cellView.layer.shadowOpacity = 0.3
-        cellView.layer.shadowRadius = 4
-        cellView.layer.shadowOffset = CGSize(width: 3, height: 6)
+        cellView.layer.shadowRadius = 3
+        cellView.layer.shadowOffset = CGSize(width: 3, height: 3)
+
     }
     
 }
