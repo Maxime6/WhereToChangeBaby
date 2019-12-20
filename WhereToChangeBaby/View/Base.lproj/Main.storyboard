@@ -118,6 +118,9 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="5F8-aR-a5I" kind="relationship" relationship="rootViewController" id="caw-s1-4qE"/>
@@ -144,6 +147,9 @@
                                 <state key="normal" title="Créer mon sac">
                                     <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="iyW-0m-oOM" kind="show" id="Irx-Cy-WLx"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0qJ-fm-KG0">
                                 <rect key="frame" x="10" y="98" width="394" height="645"/>
@@ -181,6 +187,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QGQ-wN-lT0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="942" y="398"/>
+        </scene>
+        <!--Create New Bag View Controller-->
+        <scene sceneID="CK4-NB-4td">
+            <objects>
+                <viewController id="iyW-0m-oOM" customClass="CreateNewBagViewController" customModule="WhereToChangeBaby" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qxt-8o-NFh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUa-0K-lXS">
+                                <rect key="frame" x="127" y="753" width="160" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="MIt-xg-saq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="17"/>
+                                <state key="normal" title="Créer">
+                                    <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrez le nom du sac" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Wmf-7Z-EdJ">
+                                <rect key="frame" x="20" y="108" width="374" height="34"/>
+                                <color key="backgroundColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.30436643839999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WXj-UG-meg">
+                                <rect key="frame" x="20" y="162" width="374" height="581"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="gER-c7-tvv">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gER-c7-tvv" id="W9W-kl-Prt">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="iyW-0m-oOM" id="cX1-RG-B2j"/>
+                                    <outlet property="delegate" destination="iyW-0m-oOM" id="iGq-TM-cz2"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xUa-0K-lXS" firstAttribute="centerX" secondItem="qxt-8o-NFh" secondAttribute="centerX" id="3gg-67-w1x"/>
+                            <constraint firstItem="gpt-Co-NZW" firstAttribute="trailing" secondItem="Wmf-7Z-EdJ" secondAttribute="trailing" constant="20" id="58R-Cq-dBm"/>
+                            <constraint firstItem="WXj-UG-meg" firstAttribute="top" secondItem="Wmf-7Z-EdJ" secondAttribute="bottom" constant="20" id="5IC-Aw-MAY"/>
+                            <constraint firstItem="xUa-0K-lXS" firstAttribute="top" secondItem="WXj-UG-meg" secondAttribute="bottom" constant="10" id="BXS-hg-VAM"/>
+                            <constraint firstItem="Wmf-7Z-EdJ" firstAttribute="leading" secondItem="gpt-Co-NZW" secondAttribute="leading" constant="20" id="El1-sD-XLH"/>
+                            <constraint firstItem="Wmf-7Z-EdJ" firstAttribute="top" secondItem="gpt-Co-NZW" secondAttribute="top" constant="20" id="PNY-k3-IlY"/>
+                            <constraint firstItem="gpt-Co-NZW" firstAttribute="bottom" secondItem="xUa-0K-lXS" secondAttribute="bottom" constant="25" id="RoI-yB-5RQ"/>
+                            <constraint firstItem="gpt-Co-NZW" firstAttribute="trailing" secondItem="WXj-UG-meg" secondAttribute="trailing" constant="20" id="d5I-56-ZpW"/>
+                            <constraint firstItem="WXj-UG-meg" firstAttribute="leading" secondItem="gpt-Co-NZW" secondAttribute="leading" constant="20" id="i9T-Se-aoS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gpt-Co-NZW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gf5-1V-gv2">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Lur-FS-ZWA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Byw-xc-17f">
+                            <color key="tintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addItem:" destination="iyW-0m-oOM" id="Av2-H9-72a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addItemBarButtonItem" destination="Byw-xc-17f" id="08e-ff-A0C"/>
+                        <outlet property="bagNameTextField" destination="Wmf-7Z-EdJ" id="NIS-Y1-Y3h"/>
+                        <outlet property="createBagButton" destination="xUa-0K-lXS" id="ERq-gf-Pir"/>
+                        <outlet property="tableView" destination="WXj-UG-meg" id="ST4-YL-aTJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4WX-gd-Ku3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1907" y="398"/>
         </scene>
     </scenes>
     <resources>

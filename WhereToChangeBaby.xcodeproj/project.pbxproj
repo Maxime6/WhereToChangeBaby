@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF487A8F23AD0B17005BF5C5 /* CreateNewBagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF487A8E23AD0B17005BF5C5 /* CreateNewBagViewController.swift */; };
 		AFF6213E23A3D3900095448A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6213D23A3D3900095448A /* AppDelegate.swift */; };
 		AFF6214023A3D3900095448A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6213F23A3D3900095448A /* SceneDelegate.swift */; };
 		AFF6214523A3D3900095448A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF6214323A3D3900095448A /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF487A8E23AD0B17005BF5C5 /* CreateNewBagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewBagViewController.swift; sourceTree = "<group>"; };
 		AFF6213A23A3D3900095448A /* WhereToChangeBaby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereToChangeBaby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF6213D23A3D3900095448A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFF6213F23A3D3900095448A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				AFF6215823A4371E0095448A /* BagsListViewController.swift */,
 				AFF6215A23A437560095448A /* PlacesListViewController.swift */,
 				AFF6215C23A4377D0095448A /* MapViewController.swift */,
+				AF487A8E23AD0B17005BF5C5 /* CreateNewBagViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				AFF6216023A43A250095448A /* CustomCollectionViewCell.swift in Sources */,
 				AFF6215D23A4377D0095448A /* MapViewController.swift in Sources */,
 				AFF6213E23A3D3900095448A /* AppDelegate.swift in Sources */,
+				AF487A8F23AD0B17005BF5C5 /* CreateNewBagViewController.swift in Sources */,
 				AFF6214023A3D3900095448A /* SceneDelegate.swift in Sources */,
 				AFF6215B23A437560095448A /* PlacesListViewController.swift in Sources */,
 				AFF6215923A4371E0095448A /* BagsListViewController.swift in Sources */,
