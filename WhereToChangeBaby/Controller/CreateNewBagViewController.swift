@@ -48,6 +48,12 @@ class CreateNewBagViewController: UIViewController {
         }))
         present(alert, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        bagNameTextField.resignFirstResponder()
+    }
+    
 }
 
 extension CreateNewBagViewController: UITableViewDataSource {
@@ -69,4 +75,11 @@ extension CreateNewBagViewController: UITableViewDataSource {
 
 extension CreateNewBagViewController: UITableViewDelegate {
     
+}
+
+extension CreateNewBagViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        bagNameTextField.resignFirstResponder()
+        return true
+    }
 }

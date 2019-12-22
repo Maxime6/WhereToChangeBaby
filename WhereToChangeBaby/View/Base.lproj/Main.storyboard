@@ -211,6 +211,9 @@
                                 <color key="backgroundColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.30436643839999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="iyW-0m-oOM" id="cQR-dc-eUL"/>
+                                </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WXj-UG-meg">
                                 <rect key="frame" x="20" y="162" width="374" height="581"/>
@@ -232,6 +235,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="xUa-0K-lXS" firstAttribute="centerX" secondItem="qxt-8o-NFh" secondAttribute="centerX" id="3gg-67-w1x"/>
                             <constraint firstItem="gpt-Co-NZW" firstAttribute="trailing" secondItem="Wmf-7Z-EdJ" secondAttribute="trailing" constant="20" id="58R-Cq-dBm"/>
@@ -244,6 +248,9 @@
                             <constraint firstItem="WXj-UG-meg" firstAttribute="leading" secondItem="gpt-Co-NZW" secondAttribute="leading" constant="20" id="i9T-Se-aoS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gpt-Co-NZW"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hGB-UI-1BM" appends="YES" id="4Xf-z9-okR"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Gf5-1V-gv2">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Lur-FS-ZWA"/>
@@ -262,6 +269,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4WX-gd-Ku3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hGB-UI-1BM">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="iyW-0m-oOM" id="u7I-HS-5tt"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1907" y="398"/>
         </scene>
