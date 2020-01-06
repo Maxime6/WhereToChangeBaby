@@ -11,6 +11,7 @@ import UIKit
 class CustomCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var cellView: UIView!
+    @IBOutlet weak var bagNameLabel: UILabel!
     
     
     override func awakeFromNib() {
@@ -28,6 +29,12 @@ class CustomCollectionViewCell: UICollectionViewCell {
         cellView.layer.shadowRadius = 3
         cellView.layer.shadowOffset = CGSize(width: 3, height: 3)
 
+    }
+    
+    var bag: Bag? {
+        didSet {
+            bagNameLabel.text = bag?.name
+        }
     }
     
 }

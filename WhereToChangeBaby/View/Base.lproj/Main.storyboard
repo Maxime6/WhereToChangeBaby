@@ -182,11 +182,68 @@
                     <connections>
                         <outlet property="collectionView" destination="0qJ-fm-KG0" id="E0k-lN-qBC"/>
                         <outlet property="createNewBagButton" destination="0lX-Ri-d5M" id="043-Cu-nKZ"/>
+                        <segue destination="aGG-9H-Ttj" kind="show" identifier="bagListToBag" id="gcO-zi-6qo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QGQ-wN-lT0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="942" y="398"/>
+        </scene>
+        <!--Bag View Controller-->
+        <scene sceneID="eEQ-nT-MM7">
+            <objects>
+                <viewController id="aGG-9H-Ttj" customClass="BagViewController" customModule="WhereToChangeBaby" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LYq-Wf-FG0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWC-dd-PfN">
+                                <rect key="frame" x="20" y="108" width="374" height="20"/>
+                                <color key="backgroundColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.26931720889999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bxW-h0-cBO">
+                                <rect key="frame" x="20" y="148" width="374" height="645"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bagItemCell" id="dO0-aK-FlD">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dO0-aK-FlD" id="tll-cq-g8l">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="aGG-9H-Ttj" id="lrF-Ym-5wg"/>
+                                    <outlet property="delegate" destination="aGG-9H-Ttj" id="ch5-9l-RDx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7Od-a7-XYu" firstAttribute="trailing" secondItem="sWC-dd-PfN" secondAttribute="trailing" constant="20" id="8Zo-3q-3fK"/>
+                            <constraint firstItem="bxW-h0-cBO" firstAttribute="top" secondItem="sWC-dd-PfN" secondAttribute="bottom" constant="20" id="EdE-Sw-YoN"/>
+                            <constraint firstItem="7Od-a7-XYu" firstAttribute="bottom" secondItem="bxW-h0-cBO" secondAttribute="bottom" constant="20" id="G9J-Hq-dqW"/>
+                            <constraint firstItem="7Od-a7-XYu" firstAttribute="trailing" secondItem="bxW-h0-cBO" secondAttribute="trailing" constant="20" id="NaW-kN-INt"/>
+                            <constraint firstItem="bxW-h0-cBO" firstAttribute="leading" secondItem="7Od-a7-XYu" secondAttribute="leading" constant="20" id="QxU-HL-wja"/>
+                            <constraint firstItem="sWC-dd-PfN" firstAttribute="top" secondItem="7Od-a7-XYu" secondAttribute="top" constant="20" id="Uqu-nE-Ab0"/>
+                            <constraint firstItem="sWC-dd-PfN" firstAttribute="leading" secondItem="7Od-a7-XYu" secondAttribute="leading" constant="20" id="qV7-Pp-bhL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Od-a7-XYu"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yFs-3G-4e3"/>
+                    <connections>
+                        <outlet property="bagNameLabel" destination="sWC-dd-PfN" id="9CQ-8q-uew"/>
+                        <outlet property="tableView" destination="bxW-h0-cBO" id="yfZ-9n-Qkg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZVN-Z2-UK2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1367" y="1116"/>
         </scene>
         <!--Create New Bag View Controller-->
         <scene sceneID="CK4-NB-4td">
@@ -205,6 +262,9 @@
                                 <state key="normal" title="Créer">
                                     <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="createBagButtonTapped:" destination="iyW-0m-oOM" eventType="touchUpInside" id="Trh-mw-10M"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrez le nom du sac" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Wmf-7Z-EdJ">
                                 <rect key="frame" x="20" y="108" width="374" height="34"/>

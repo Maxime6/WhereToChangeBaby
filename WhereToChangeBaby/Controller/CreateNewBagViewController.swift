@@ -10,12 +10,17 @@ import UIKit
 
 class CreateNewBagViewController: UIViewController {
 
+    //MARK: - Outlets
+    
     @IBOutlet weak var addItemBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bagNameTextField: UITextField!
     @IBOutlet weak var createBagButton: UIButton!
     
+    //MARK: - Properties
     var itemsList = [String]()
+    
+    //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +28,8 @@ class CreateNewBagViewController: UIViewController {
         setUpCreateButton()
         setUpBagNameTextField()
     }
+    
+    //MARK: - Class Methods
     
     func setUpCreateButton() {
         createBagButton.layer.cornerRadius = 18.0
@@ -33,7 +40,16 @@ class CreateNewBagViewController: UIViewController {
     func setUpBagNameTextField() {
         
     }
+    
+    func createBagObject() {
+        let bagName = bagNameTextField.text!
+        let items = itemsList
+        Bag.create(name: bagName, items: items)
+        print(items)
+    }
 
+    //MARK: - Actions
+    
     @IBAction func addItem(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Ajouter un élément", message: "", preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -54,7 +70,14 @@ class CreateNewBagViewController: UIViewController {
         bagNameTextField.resignFirstResponder()
     }
     
+    @IBAction func createBagButtonTapped(_ sender: UIButton) {
+        createBagObject()
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
+
+//MARK: - Extensions
 
 extension CreateNewBagViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {

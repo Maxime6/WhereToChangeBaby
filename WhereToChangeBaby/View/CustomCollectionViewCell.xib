@@ -21,7 +21,20 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cP6-JN-K3G">
                                 <rect key="frame" x="5" y="5" width="140" height="140"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kyq-te-DNk">
+                                        <rect key="frame" x="10" y="58" width="120" height="24"/>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.8495558647260274" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Kyq-te-DNk" secondAttribute="trailing" constant="10" id="S8J-dr-0XB"/>
+                                    <constraint firstItem="Kyq-te-DNk" firstAttribute="centerY" secondItem="cP6-JN-K3G" secondAttribute="centerY" id="bS4-Kl-eS4"/>
+                                    <constraint firstItem="Kyq-te-DNk" firstAttribute="leading" secondItem="cP6-JN-K3G" secondAttribute="leading" constant="10" id="svB-5l-5Te"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -42,6 +55,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="bagNameLabel" destination="Kyq-te-DNk" id="Sr6-yM-lZ3"/>
                 <outlet property="cellView" destination="cP6-JN-K3G" id="HkJ-oo-pKP"/>
             </connections>
             <point key="canvasLocation" x="139" y="107"/>

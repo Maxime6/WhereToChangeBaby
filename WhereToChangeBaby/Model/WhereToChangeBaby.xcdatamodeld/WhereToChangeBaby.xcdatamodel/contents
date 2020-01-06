@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Bag" representedClassName=".Bag" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="bag" inverseEntity="Item"/>
+    </entity>
+    <entity name="Item" representedClassName=".Item" syncable="YES" codeGenerationType="category">
+        <attribute name="itemName" optional="YES" attributeType="String"/>
+        <relationship name="bag" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bag" inverseName="items" inverseEntity="Bag"/>
+    </entity>
+    <elements>
+        <element name="Bag" positionX="-167.12890625" positionY="-241.8203125" width="119.44140625" height="73"/>
+        <element name="Item" positionX="56.78125" positionY="-141.2109375" width="128" height="73"/>
+    </elements>
+</model>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF3846E323BFE12400DF89A9 /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3846E223BFE12400DF89A9 /* Bag.swift */; };
+		AF47599323C231EA006989D2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF47599223C231EA006989D2 /* Item.swift */; };
+		AF47599723C28A22006989D2 /* BagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF47599623C28A22006989D2 /* BagViewController.swift */; };
 		AF487A8F23AD0B17005BF5C5 /* CreateNewBagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF487A8E23AD0B17005BF5C5 /* CreateNewBagViewController.swift */; };
 		AFF6213E23A3D3900095448A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6213D23A3D3900095448A /* AppDelegate.swift */; };
 		AFF6214023A3D3900095448A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6213F23A3D3900095448A /* SceneDelegate.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF3846E223BFE12400DF89A9 /* Bag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
+		AF47599223C231EA006989D2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		AF47599623C28A22006989D2 /* BagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagViewController.swift; sourceTree = "<group>"; };
 		AF487A8E23AD0B17005BF5C5 /* CreateNewBagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewBagViewController.swift; sourceTree = "<group>"; };
 		AFF6213A23A3D3900095448A /* WhereToChangeBaby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereToChangeBaby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF6213D23A3D3900095448A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +74,6 @@
 		AFF6213C23A3D3900095448A /* WhereToChangeBaby */ = {
 			isa = PBXGroup;
 			children = (
-				AFF6214623A3D3900095448A /* WhereToChangeBaby.xcdatamodeld */,
 				AFF6215423A3D5670095448A /* Model */,
 				AFF6215523A3D5750095448A /* View */,
 				AFF6215623A3D57D0095448A /* Controller */,
@@ -80,6 +85,9 @@
 		AFF6215423A3D5670095448A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AFF6214623A3D3900095448A /* WhereToChangeBaby.xcdatamodeld */,
+				AF3846E223BFE12400DF89A9 /* Bag.swift */,
+				AF47599223C231EA006989D2 /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,6 +109,7 @@
 				AFF6215A23A437560095448A /* PlacesListViewController.swift */,
 				AFF6215C23A4377D0095448A /* MapViewController.swift */,
 				AF487A8E23AD0B17005BF5C5 /* CreateNewBagViewController.swift */,
+				AF47599623C28A22006989D2 /* BagViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,13 +198,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF47599323C231EA006989D2 /* Item.swift in Sources */,
 				AFF6214823A3D3900095448A /* WhereToChangeBaby.xcdatamodeld in Sources */,
+				AF47599723C28A22006989D2 /* BagViewController.swift in Sources */,
 				AFF6216023A43A250095448A /* CustomCollectionViewCell.swift in Sources */,
 				AFF6215D23A4377D0095448A /* MapViewController.swift in Sources */,
 				AFF6213E23A3D3900095448A /* AppDelegate.swift in Sources */,
 				AF487A8F23AD0B17005BF5C5 /* CreateNewBagViewController.swift in Sources */,
 				AFF6214023A3D3900095448A /* SceneDelegate.swift in Sources */,
 				AFF6215B23A437560095448A /* PlacesListViewController.swift in Sources */,
+				AF3846E323BFE12400DF89A9 /* Bag.swift in Sources */,
 				AFF6215923A4371E0095448A /* BagsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
