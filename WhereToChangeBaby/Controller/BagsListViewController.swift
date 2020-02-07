@@ -12,10 +12,7 @@ class BagsListViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var createNewBagButton: UIButton!
-    
-    // Collectionview parameters
-    private let sectionInsets = UIEdgeInsets(top: 30.0, left: 20.0, bottom: 20.0, right: 20.0)
-    private let itemPerRow: CGFloat = 2
+    @IBOutlet weak var trashButton: UIBarButtonItem!
     
     private var bagList = Bag.fetchAll()
     var bagData: Bag?
@@ -23,8 +20,13 @@ class BagsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+        // voir storyboard
         collectionView.dataSource = self
         collectionView.delegate = self
+//        collectionView.dragInteractionEnabled = true
+//        collectionView.dragDelegate = self
         
         let nib = UINib.init(nibName: "CustomCollectionViewCell", bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "bagCell")
@@ -36,6 +38,19 @@ class BagsListViewController: UIViewController {
         super.viewWillAppear(animated)
         bagList = Bag.fetchAll()
         collectionView.reloadData()
+    }
+    
+    @IBAction func trashButtonTapped(_ sender: Any) {
+        if let selectedCells = collectionView.indexPathsForSelectedItems {
+            let items = selectedCells.map { $0.item }.sorted().reversed()
+            for item in items {
+                guard let name = bagList[item].name else { return }
+                bagList.remove(at: item)
+                Bag.deleteEntity(name: name)
+            }
+            collectionView.deleteItems(at: selectedCells)
+            trashButton.isEnabled = false
+        }
     }
     
     func createNewBagButtonSettings() {
@@ -51,23 +66,42 @@ class BagsListViewController: UIViewController {
             bagVC.bagData = bagData
         }
     }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        collectionView.allowsMultipleSelection = editing
+        let indexPaths = collectionView.indexPathsForVisibleItems
+        for indexPath in indexPaths {
+            let cell = collectionView.cellForItem(at: indexPath) as? CustomCollectionViewCell
+            cell?.isEditingMode = editing
+        }
+    }
+
 
 
 }
 
 extension BagsListViewController: UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return bagList.count
+        if bagList.count == 0 {
+            let rect = CGRect(x: 0, y: 0, width: self.collectionView.bounds.width, height: self.collectionView.bounds.height)
+            let label = UILabel(frame: rect)
+            label.text = "Pas de sacs enregistrés."
+            label.textAlignment = .center
+            collectionView.backgroundView = label
+            return 0
+        } else {
+            self.collectionView.backgroundView = nil
+            return bagList.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bagCell", for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
         cell.bag = bagList[indexPath.row]
+        cell.isEditingMode = isEditing
         return cell
     }
 }
@@ -75,27 +109,46 @@ extension BagsListViewController: UICollectionViewDataSource {
 
 extension BagsListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let indexPath = collectionView.indexPathsForSelectedItems else { return }
-        bagData = bagList[indexPath.count]
-        self.performSegue(withIdentifier: "bagListToBag", sender: self)
+        if !isEditing {
+            trashButton.isEnabled = false
+            bagData = bagList[indexPath.row]
+            self.performSegue(withIdentifier: "bagListToBag", sender: self)
+        } else {
+            trashButton.isEnabled = true
+        }
+        
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let selectedItems = collectionView.indexPathsForSelectedItems, selectedItems.count == 0  {
+            trashButton.isEnabled = false
+        }
+    }
+    
 }
 
 extension BagsListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let paddingSpace = sectionInsets.left * (itemPerRow+1)
-        let availableWidth = collectionView.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemPerRow
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        let side = (view.frame.width - 60) / 2
+        return CGSize(width: side, height: side)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.top
+        return 10
     }
     
 }
+
+//extension BagsListViewController: UICollectionViewDragDelegate {
+//
+//    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+//        let bagCell = bagList[indexPath.row]
+//        let item = NSItemProvider(object: bagCell)
+//        let dragIem = UIDragItem(itemProvider: item)
+//    }
+//}

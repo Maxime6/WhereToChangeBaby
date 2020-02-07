@@ -16,5 +16,13 @@ class Item: NSManagedObject {
         bagItem.itemName = itemName
         bagItem.bag = bag
     }
+
+    static func deleteItemEntity(name: String, viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        guard let items = try? viewContext.fetch(request) else { return }
+        guard let item = items.first else { return }
+        viewContext.delete(item)
+        try? viewContext.save()
+    }
     
 }

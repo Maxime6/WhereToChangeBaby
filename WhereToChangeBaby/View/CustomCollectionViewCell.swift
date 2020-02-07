@@ -12,6 +12,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var bagNameLabel: UILabel!
+    @IBOutlet weak var checkMarkImageView: UIImageView!
     
     
     override func awakeFromNib() {
@@ -34,6 +35,20 @@ class CustomCollectionViewCell: UICollectionViewCell {
     var bag: Bag? {
         didSet {
             bagNameLabel.text = bag?.name
+        }
+    }
+    
+    var isEditingMode = false {
+        didSet {
+            checkMarkImageView.isHidden = !isEditingMode
+        }
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            if isEditingMode {
+                checkMarkImageView.isHighlighted = isSelected ? true : false
+            }
         }
     }
     
