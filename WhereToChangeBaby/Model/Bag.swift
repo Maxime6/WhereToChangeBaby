@@ -11,12 +11,14 @@ import CoreData
 
 class Bag: NSManagedObject {
     
+    // Fetch entities
     static func fetchAll(viewContext: NSManagedObjectContext = AppDelegate.viewContext) -> [Bag] {
         let request: NSFetchRequest<Bag> = Bag.fetchRequest()
         guard let bags = try? viewContext.fetch(request) else { return [] }
         return bags
     }
     
+    // Delete entitiy
     static func deleteEntity(name: String, viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
         let request: NSFetchRequest<Bag> = Bag.fetchRequest()
         guard let bags = try? viewContext.fetch(request) else { return }
@@ -25,6 +27,7 @@ class Bag: NSManagedObject {
         try? viewContext.save()
     }
     
+    // Create entity
     static func create(name: String, items: [String], viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
         let bag = Bag(context: viewContext)
         bag.name = name
@@ -34,10 +37,8 @@ class Bag: NSManagedObject {
         try? viewContext.save()
     }
     
-    static func changeBagName(name: String, viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
-        let request: NSFetchRequest<Bag> = Bag.fetchRequest()
-        guard let bags = try? viewContext.fetch(request) else { return }
-        guard let bag = bags.first else { return }
+    // Change entity bag name
+    static func changeBagName(name: String, bag: Bag, viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
         bag.name = name
         try? viewContext.save()
     }

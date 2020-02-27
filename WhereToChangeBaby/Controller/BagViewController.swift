@@ -10,16 +10,18 @@ import UIKit
 
 class BagViewController: UIViewController {
 
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bagNameLabel: UILabel!
     @IBOutlet weak var addIemBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var editBagNameButton: UIButton!
     
+    // MARK: - Properties
     private var bagList = Bag.fetchAll()
     var bagData: Bag?
-    var items = [Item]()
+    private var items = [Item]()
     
-    
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         bagNameLabel.text = bagData?.name
@@ -27,6 +29,7 @@ class BagViewController: UIViewController {
         setUpBagNameLabelParameters()
     }
     
+    // MARK: - Actions
     @IBAction func addItem(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Ajouter un élément", message: "", preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -52,13 +55,15 @@ class BagViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Modifier", style: .cancel, handler: { (uiAlertAction) in
             let textField = alert.textFields?[0].text
             guard let name = textField else { return }
-            Bag.changeBagName(name: name)
+            guard let bag = self.bagData else { return }
+            Bag.changeBagName(name: name, bag: bag)
             self.bagNameLabel.text = name
         }))
         present(alert, animated: true, completion: nil)
     }
     
-    func setUpBagNameLabelParameters() {
+    // MARK: - Class Methods
+    private func setUpBagNameLabelParameters() {
         bagNameLabel.layer.cornerRadius = 10
         bagNameLabel.layer.shadowColor = UIColor(ciColor: .black).cgColor
         bagNameLabel.layer.shadowOpacity = 0.3
@@ -68,22 +73,24 @@ class BagViewController: UIViewController {
 
 }
 
+// MARK: - Extensions
+
 extension BagViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let itemsList = bagData?.items?.allObjects as? [Item] else { return 0 }
         items = itemsList
         return items.count
-//        return (bagData?.items!.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bagItemCell", for: indexPath)
         let itemEntities = bagData?.items?.allObjects as? [Item]
-        if itemEntities == [] {
+        let itemsList = itemEntities?.map({ $0.itemName ?? ""}).sorted()
+        if itemsList == [] {
             cell.textLabel?.text = ""
         } else {
-            cell.textLabel?.text = itemEntities?[indexPath.row].itemName
+            cell.textLabel?.text = itemsList?[indexPath.row]
         }
         return cell
     }
@@ -107,6 +114,7 @@ extension BagViewController: UITableViewDelegate {
             Item.deleteItemEntity(name: name)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
+            print(items)
         }
     }
 

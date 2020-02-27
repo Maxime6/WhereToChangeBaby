@@ -11,17 +11,15 @@ import UIKit
 class CreateNewBagViewController: UIViewController {
 
     //MARK: - Outlets
-    
     @IBOutlet weak var addItemBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bagNameTextField: UITextField!
     @IBOutlet weak var createBagButton: UIButton!
     
     //MARK: - Properties
-    var itemsList = [String]()
+    private var itemsList = [String]()
     
     //MARK: - View Life Cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,18 +28,17 @@ class CreateNewBagViewController: UIViewController {
     }
     
     //MARK: - Class Methods
-    
-    func setUpCreateButton() {
+    private func setUpCreateButton() {
         createBagButton.layer.cornerRadius = 18.0
         createBagButton.layer.borderWidth = 2
         createBagButton.layer.borderColor = CGColor(srgbRed: 175/255, green: 82/255, blue: 222/255, alpha: 1.0)
     }
     
-    func setUpBagNameTextField() {
+    private func setUpBagNameTextField() {
         
     }
     
-    func createBagObject() {
+    private func createBagObject() {
         let bagName = bagNameTextField.text!
         let items = itemsList
         Bag.create(name: bagName, items: items)
@@ -49,7 +46,6 @@ class CreateNewBagViewController: UIViewController {
     }
 
     //MARK: - Actions
-    
     @IBAction func addItem(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Ajouter un élément", message: "", preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -104,5 +100,12 @@ extension CreateNewBagViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         bagNameTextField.resignFirstResponder()
         return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        return updatedText.count <= 20
     }
 }

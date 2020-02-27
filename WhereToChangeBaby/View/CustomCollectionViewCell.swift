@@ -10,11 +10,12 @@ import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
 
+    // MARK: - Outlets
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var bagNameLabel: UILabel!
     @IBOutlet weak var checkMarkImageView: UIImageView!
     
-    
+    // MARK: - View Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -23,6 +24,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         contentView.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    // MARK: - Class Methods
     func setUpCustomView() {
         cellView.layer.cornerRadius = 20
         cellView.layer.shadowColor = UIColor(ciColor: .black).cgColor
@@ -32,6 +34,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
     }
     
+    // MARK: - Properties
     var bag: Bag? {
         didSet {
             bagNameLabel.text = bag?.name

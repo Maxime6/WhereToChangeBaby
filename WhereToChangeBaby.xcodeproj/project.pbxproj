@@ -11,6 +11,9 @@
 		AF47599323C231EA006989D2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF47599223C231EA006989D2 /* Item.swift */; };
 		AF47599723C28A22006989D2 /* BagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF47599623C28A22006989D2 /* BagViewController.swift */; };
 		AF487A8F23AD0B17005BF5C5 /* CreateNewBagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF487A8E23AD0B17005BF5C5 /* CreateNewBagViewController.swift */; };
+		AF4BCB7123FBB788008402AA /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BCB7023FBB788008402AA /* AddPlaceViewController.swift */; };
+		AF52952C23FFC3E0001AAE3F /* PlacesSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52952B23FFC3E0001AAE3F /* PlacesSearchTableViewController.swift */; };
+		AF83269C23F09FC900719E79 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83269B23F09FC900719E79 /* CoreDataTests.swift */; };
 		AFF6213E23A3D3900095448A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6213D23A3D3900095448A /* AppDelegate.swift */; };
 		AFF6214023A3D3900095448A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6213F23A3D3900095448A /* SceneDelegate.swift */; };
 		AFF6214523A3D3900095448A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF6214323A3D3900095448A /* Main.storyboard */; };
@@ -24,11 +27,26 @@
 		AFF6216123A43A250095448A /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF6215F23A43A250095448A /* CustomCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AF83269623F09F7C00719E79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFF6213223A3D3900095448A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFF6213923A3D3900095448A;
+			remoteInfo = WhereToChangeBaby;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		AF3846E223BFE12400DF89A9 /* Bag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
 		AF47599223C231EA006989D2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		AF47599623C28A22006989D2 /* BagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagViewController.swift; sourceTree = "<group>"; };
 		AF487A8E23AD0B17005BF5C5 /* CreateNewBagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewBagViewController.swift; sourceTree = "<group>"; };
+		AF4BCB7023FBB788008402AA /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceViewController.swift; sourceTree = "<group>"; };
+		AF52952B23FFC3E0001AAE3F /* PlacesSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSearchTableViewController.swift; sourceTree = "<group>"; };
+		AF83269123F09F7C00719E79 /* WhereToChangeBabyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhereToChangeBabyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF83269523F09F7C00719E79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF83269B23F09FC900719E79 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		AFF6213A23A3D3900095448A /* WhereToChangeBaby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhereToChangeBaby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF6213D23A3D3900095448A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFF6213F23A3D3900095448A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +63,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AF83268E23F09F7C00719E79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AFF6213723A3D3900095448A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,10 +80,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF83269223F09F7C00719E79 /* WhereToChangeBabyTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF83269523F09F7C00719E79 /* Info.plist */,
+				AF83269B23F09FC900719E79 /* CoreDataTests.swift */,
+			);
+			path = WhereToChangeBabyTests;
+			sourceTree = "<group>";
+		};
 		AFF6213123A3D3900095448A = {
 			isa = PBXGroup;
 			children = (
 				AFF6213C23A3D3900095448A /* WhereToChangeBaby */,
+				AF83269223F09F7C00719E79 /* WhereToChangeBabyTests */,
 				AFF6213B23A3D3900095448A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				AFF6213A23A3D3900095448A /* WhereToChangeBaby.app */,
+				AF83269123F09F7C00719E79 /* WhereToChangeBabyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,11 +141,13 @@
 		AFF6215623A3D57D0095448A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AFF6215823A4371E0095448A /* BagsListViewController.swift */,
 				AFF6215A23A437560095448A /* PlacesListViewController.swift */,
-				AFF6215C23A4377D0095448A /* MapViewController.swift */,
+				AFF6215823A4371E0095448A /* BagsListViewController.swift */,
 				AF487A8E23AD0B17005BF5C5 /* CreateNewBagViewController.swift */,
 				AF47599623C28A22006989D2 /* BagViewController.swift */,
+				AFF6215C23A4377D0095448A /* MapViewController.swift */,
+				AF4BCB7023FBB788008402AA /* AddPlaceViewController.swift */,
+				AF52952B23FFC3E0001AAE3F /* PlacesSearchTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -129,6 +167,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AF83269023F09F7C00719E79 /* WhereToChangeBabyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF83269A23F09F7C00719E79 /* Build configuration list for PBXNativeTarget "WhereToChangeBabyTests" */;
+			buildPhases = (
+				AF83268D23F09F7C00719E79 /* Sources */,
+				AF83268E23F09F7C00719E79 /* Frameworks */,
+				AF83268F23F09F7C00719E79 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF83269723F09F7C00719E79 /* PBXTargetDependency */,
+			);
+			name = WhereToChangeBabyTests;
+			productName = WhereToChangeBabyTests;
+			productReference = AF83269123F09F7C00719E79 /* WhereToChangeBabyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AFF6213923A3D3900095448A /* WhereToChangeBaby */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFF6215123A3D3940095448A /* Build configuration list for PBXNativeTarget "WhereToChangeBaby" */;
@@ -156,6 +212,11 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = MaximeTanter;
 				TargetAttributes = {
+					AF83269023F09F7C00719E79 = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
+						TestTargetID = AFF6213923A3D3900095448A;
+					};
 					AFF6213923A3D3900095448A = {
 						CreatedOnToolsVersion = 11.3;
 					};
@@ -175,11 +236,19 @@
 			projectRoot = "";
 			targets = (
 				AFF6213923A3D3900095448A /* WhereToChangeBaby */,
+				AF83269023F09F7C00719E79 /* WhereToChangeBabyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AF83268F23F09F7C00719E79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AFF6213823A3D3900095448A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -194,11 +263,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AF83268D23F09F7C00719E79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF83269C23F09FC900719E79 /* CoreDataTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AFF6213623A3D3900095448A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AF47599323C231EA006989D2 /* Item.swift in Sources */,
+				AF4BCB7123FBB788008402AA /* AddPlaceViewController.swift in Sources */,
+				AF52952C23FFC3E0001AAE3F /* PlacesSearchTableViewController.swift in Sources */,
 				AFF6214823A3D3900095448A /* WhereToChangeBaby.xcdatamodeld in Sources */,
 				AF47599723C28A22006989D2 /* BagViewController.swift in Sources */,
 				AFF6216023A43A250095448A /* CustomCollectionViewCell.swift in Sources */,
@@ -213,6 +292,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF83269723F09F7C00719E79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFF6213923A3D3900095448A /* WhereToChangeBaby */;
+			targetProxy = AF83269623F09F7C00719E79 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AFF6214323A3D3900095448A /* Main.storyboard */ = {
@@ -234,6 +321,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AF83269823F09F7C00719E79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WC244SYFG3;
+				INFOPLIST_FILE = WhereToChangeBabyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.maximetanter.WhereToChangeBabyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhereToChangeBaby.app/WhereToChangeBaby";
+			};
+			name = Debug;
+		};
+		AF83269923F09F7C00719E79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WC244SYFG3;
+				INFOPLIST_FILE = WhereToChangeBabyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.maximetanter.WhereToChangeBabyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhereToChangeBaby.app/WhereToChangeBaby";
+			};
+			name = Release;
+		};
 		AFF6214F23A3D3940095448A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -355,6 +485,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WC244SYFG3;
 				INFOPLIST_FILE = "WhereToChangeBaby/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,6 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WC244SYFG3;
 				INFOPLIST_FILE = "WhereToChangeBaby/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -387,6 +519,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AF83269A23F09F7C00719E79 /* Build configuration list for PBXNativeTarget "WhereToChangeBabyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF83269823F09F7C00719E79 /* Debug */,
+				AF83269923F09F7C00719E79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AFF6213523A3D3900095448A /* Build configuration list for PBXProject "WhereToChangeBaby" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

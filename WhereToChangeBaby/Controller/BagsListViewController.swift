@@ -10,13 +10,16 @@ import UIKit
 
 class BagsListViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var createNewBagButton: UIButton!
     @IBOutlet weak var trashButton: UIBarButtonItem!
     
+    // MARK: - Properties
     private var bagList = Bag.fetchAll()
     var bagData: Bag?
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +35,7 @@ class BagsListViewController: UIViewController {
         self.collectionView.register(nib, forCellWithReuseIdentifier: "bagCell")
 
         createNewBagButtonSettings()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +44,7 @@ class BagsListViewController: UIViewController {
         collectionView.reloadData()
     }
     
+    // MARK: - Actions
     @IBAction func trashButtonTapped(_ sender: Any) {
         if let selectedCells = collectionView.indexPathsForSelectedItems {
             let items = selectedCells.map { $0.item }.sorted().reversed()
@@ -53,7 +58,8 @@ class BagsListViewController: UIViewController {
         }
     }
     
-    func createNewBagButtonSettings() {
+    // MARK: - Class Methods
+    private func createNewBagButtonSettings() {
         createNewBagButton.layer.borderWidth = 2.0
         createNewBagButton.layer.cornerRadius = 18.0
         createNewBagButton.layer.borderColor = CGColor(srgbRed: 175/255, green: 82/255, blue: 222/255, alpha: 1.0)
@@ -81,6 +87,8 @@ class BagsListViewController: UIViewController {
 
 }
 
+// MARK: - Extensions
+
 extension BagsListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -89,6 +97,7 @@ extension BagsListViewController: UICollectionViewDataSource {
             let label = UILabel(frame: rect)
             label.text = "Pas de sacs enregistrés."
             label.textAlignment = .center
+            label.textColor = .gray
             collectionView.backgroundView = label
             return 0
         } else {
@@ -143,12 +152,3 @@ extension BagsListViewController: UICollectionViewDelegateFlowLayout {
     }
     
 }
-
-//extension BagsListViewController: UICollectionViewDragDelegate {
-//
-//    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-//        let bagCell = bagList[indexPath.row]
-//        let item = NSItemProvider(object: bagCell)
-//        let dragIem = UIDragItem(itemProvider: item)
-//    }
-//}

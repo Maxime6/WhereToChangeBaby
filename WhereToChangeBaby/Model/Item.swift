@@ -11,12 +11,14 @@ import CoreData
 
 class Item: NSManagedObject {
 
+    // Create entity
     static func create(itemName: String, bag: Bag, viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
         let bagItem = Item(context: viewContext)
         bagItem.itemName = itemName
         bagItem.bag = bag
     }
 
+    // Delete entity
     static func deleteItemEntity(name: String, viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         guard let items = try? viewContext.fetch(request) else { return }
