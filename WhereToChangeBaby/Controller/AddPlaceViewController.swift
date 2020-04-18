@@ -8,18 +8,32 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class AddPlaceViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var addPlaceBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var placeNameLabel: UILabel!
-    @IBOutlet weak var placeAddressLabel: UILabel!
+    @IBOutlet weak private var scrollView: UIScrollView!
+    @IBOutlet weak private var addPlaceBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak private var placeNameLabel: UILabel!
+    @IBOutlet weak private var placeAddressLabel: UILabel!
+    @IBOutlet weak var zoneSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var cleanlinessSlider: UISlider!
+    @IBOutlet var accessoriesSwitchCollection: [UISwitch]!
     
     // MARK: - Properties
-    var mapView: MKMapView?
+    let databaseService = DatabaseService()
+    
+    var mapViewRegion: MKCoordinateRegion?
     private var resultSearchController: UISearchController?
+    
+    var placeMark: MKPlacemark?
+    
+    var switchTag: Int?
+    
+    var place: Place?
+    var placeAccessories: Place.Accessories?
+    var sliderValue = 5
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -31,15 +45,19 @@ class AddPlaceViewController: UIViewController {
     }
 
     // MARK: - Actions
-    @IBAction func addPlaceButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     
-    @IBAction func cancelPlaceSearchVC(_ segue: UIStoryboardSegue) {
+    @IBAction private func cancelPlaceSearchVC(_ segue: UIStoryboardSegue) {
         if let placeSearchVC = segue.source as? PlacesSearchTableViewController {
             placeNameLabel.text = placeSearchVC.placeName
             placeAddressLabel.text = placeSearchVC.placeAddress
+            placeMark = placeSearchVC.placeMark
+//            print(placeMark)
         }
+    }
+    
+    @IBAction func sliderInteraction(_ sender: Any) {
+        let value = cleanlinessSlider.value
+        sliderValue = Int(value)
     }
     
     // MARK: - Class Methods
@@ -54,7 +72,49 @@ class AddPlaceViewController: UIViewController {
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         resultSearchController?.obscuresBackgroundDuringPresentation = true
         definesPresentationContext = true
-        placesSearchTable?.mapView = mapView
+        placesSearchTable?.region = mapViewRegion
+    }
+    
+    func createPlaceObject() {
+        guard let placeName = placeNameLabel.text else { return }
+        guard let placeAdress = placeAddressLabel.text else { return }
+        guard let latitude = placeMark?.coordinate.latitude else { return }
+        guard let longitude = placeMark?.coordinate.longitude else { return }
+        let cleanlinessValue = sliderValue
+        
+        let zoneIndex = zoneSegmentedControl.selectedSegmentIndex
+        var zone = Place.Zone.femme
+        switch zoneIndex {
+        case 0:
+            zone = .femme
+        case 1:
+            zone = .homme
+        case 2:
+            zone = .mixte
+        default:
+            break
+        }
+
+        placeAccessories = Place.Accessories(changingTable: accessoriesSwitchCollection[0].isOn, mattress: accessoriesSwitchCollection[1].isOn, mattressProtection: accessoriesSwitchCollection[2].isOn, babyDiapers: accessoriesSwitchCollection[3].isOn, wipes: accessoriesSwitchCollection[4].isOn, childrensToilet: accessoriesSwitchCollection[5].isOn)
+
+        guard let accessories = placeAccessories else { return }
+        
+        place = Place(name: placeName, address: placeAdress, latitude: latitude, longitude: longitude, zone: zone, cleanliness: cleanlinessValue, accessories: accessories)
+        
+        guard let place = place else { return }
+
+        savePlaceObject(place: place)
+        
+    }
+    
+    func savePlaceObject(place: Place) {
+        databaseService.saveData(collectionName: "Places", place: place) { (success) in
+            if success {
+                print("Success saving data to firestore.")
+            } else {
+                print("error")
+            }
+        }
     }
     
 }

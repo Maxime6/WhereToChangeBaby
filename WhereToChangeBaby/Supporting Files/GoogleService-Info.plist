@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1017967968453-psnvbigmlpjcblsprshef8nhlhg7q493.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1017967968453-psnvbigmlpjcblsprshef8nhlhg7q493</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBVhx4DxbIskin-rgJpxbGmxh39dPma5GQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1017967968453</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.maximetanter.WhereToChangeBaby</string>
+	<key>PROJECT_ID</key>
+	<string>whertochangebaby</string>
+	<key>STORAGE_BUCKET</key>
+	<string>whertochangebaby.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1017967968453:ios:7bbf91d483278295a770ac</string>
+	<key>DATABASE_URL</key>
+	<string>https://whertochangebaby.firebaseio.com</string>
+</dict>
+</plist>

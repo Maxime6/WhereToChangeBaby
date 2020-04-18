@@ -11,9 +11,9 @@ import UIKit
 class BagsListViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var createNewBagButton: UIButton!
-    @IBOutlet weak var trashButton: UIBarButtonItem!
+    @IBOutlet weak private var collectionView: UICollectionView!
+    @IBOutlet weak private var createNewBagButton: UIButton!
+    @IBOutlet weak private var trashButton: UIBarButtonItem!
     
     // MARK: - Properties
     private var bagList = Bag.fetchAll()
@@ -45,7 +45,7 @@ class BagsListViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func trashButtonTapped(_ sender: Any) {
+    @IBAction private func trashButtonTapped(_ sender: Any) {
         if let selectedCells = collectionView.indexPathsForSelectedItems {
             let items = selectedCells.map { $0.item }.sorted().reversed()
             for item in items {

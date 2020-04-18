@@ -11,10 +11,10 @@ import UIKit
 class CreateNewBagViewController: UIViewController {
 
     //MARK: - Outlets
-    @IBOutlet weak var addItemBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var bagNameTextField: UITextField!
-    @IBOutlet weak var createBagButton: UIButton!
+    @IBOutlet weak private var addItemBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var bagNameTextField: UITextField!
+    @IBOutlet weak private var createBagButton: UIButton!
     
     //MARK: - Properties
     private var itemsList = [String]()
@@ -46,12 +46,13 @@ class CreateNewBagViewController: UIViewController {
     }
 
     //MARK: - Actions
-    @IBAction func addItem(_ sender: UIBarButtonItem) {
+    @IBAction private func addItem(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Ajouter un élément", message: "", preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = "Elément"
             textField.text = ""
         }
+        alert.addAction(UIAlertAction(title: "Annuler", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Ajouter", style: .cancel, handler: { (uiAlertAction) in
             let textField = alert.textFields?[0].text
             guard let item = textField else { return }
@@ -62,11 +63,11 @@ class CreateNewBagViewController: UIViewController {
     }
     
     
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+    @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         bagNameTextField.resignFirstResponder()
     }
     
-    @IBAction func createBagButtonTapped(_ sender: UIButton) {
+    @IBAction private func createBagButtonTapped(_ sender: UIButton) {
         createBagObject()
         navigationController?.popViewController(animated: true)
     }

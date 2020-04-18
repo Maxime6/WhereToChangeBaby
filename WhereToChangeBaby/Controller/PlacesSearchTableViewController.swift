@@ -13,9 +13,10 @@ class PlacesSearchTableViewController: UITableViewController {
     
     // MARK: - Properties
     private var matchingItems: [MKMapItem] = []
-    var mapView: MKMapView?
+    var region: MKCoordinateRegion?
     var placeName = ""
     var placeAddress = ""
+    var placeMark: MKPlacemark?
 
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -28,12 +29,12 @@ class PlacesSearchTableViewController: UITableViewController {
 
 extension PlacesSearchTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-//        guard let mapView = mapView else { return }
-//        print(mapView.region)
+//        guard let mapViewRegion = region else { return }
+//        print(mapViewRegion)
         guard let searchBarText = searchController.searchBar.text else { return }
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchBarText
-//        request.region = mapView.region
+//        request.region = mapViewRegion
         let search = MKLocalSearch(request: request)
         search.start { (response, _) in
             guard let response = response else { return }
@@ -62,6 +63,7 @@ extension PlacesSearchTableViewController {
 extension PlacesSearchTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = matchingItems[indexPath.row].placemark
+        placeMark = selectedItem
         guard let placeName = selectedItem.name else { return }
         self.placeName = placeName
         placeAddress = "\(selectedItem.thoroughfare ?? ""), \(selectedItem.locality ?? ""), \(selectedItem.subLocality ?? ""), \(selectedItem.administrativeArea ?? ""), \(selectedItem.postalCode ?? ""), \(selectedItem.country ?? "")"

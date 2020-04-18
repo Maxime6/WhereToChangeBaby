@@ -11,10 +11,10 @@ import UIKit
 class BagViewController: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var bagNameLabel: UILabel!
-    @IBOutlet weak var addIemBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var editBagNameButton: UIButton!
+    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var bagNameLabel: UILabel!
+    @IBOutlet weak private var addIemBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak private var editBagNameButton: UIButton!
     
     // MARK: - Properties
     private var bagList = Bag.fetchAll()
@@ -30,12 +30,13 @@ class BagViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func addItem(_ sender: UIBarButtonItem) {
+    @IBAction private func addItem(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Ajouter un élément", message: "", preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = "Elément"
             textField.text = ""
         }
+        alert.addAction(UIAlertAction(title: "Annuler", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Ajouter", style: .cancel, handler: { (uiAlertAction) in
             let textField = alert.textFields?[0].text
             guard let item = textField else { return }
@@ -45,13 +46,14 @@ class BagViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func editBagNameLabelButtonTapped(_ sender: Any) {
+    @IBAction private func editBagNameLabelButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Modifier le nom du sac", message: "", preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.autocapitalizationType = .sentences
             textField.placeholder = "Nouveau nom"
             textField.text = ""
         }
+        alert.addAction(UIAlertAction(title: "Annuler", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Modifier", style: .cancel, handler: { (uiAlertAction) in
             let textField = alert.textFields?[0].text
             guard let name = textField else { return }

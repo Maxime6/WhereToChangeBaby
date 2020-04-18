@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dLC-sa-nzZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dLC-sa-nzZ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,9 +54,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLK-ha-MOB">
-                                <rect key="frame" x="0.0" y="238" width="414" height="575"/>
-                            </containerView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GDi-gE-KoG">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <connections>
@@ -83,12 +80,8 @@
                             <constraint firstItem="gKC-58-FkJ" firstAttribute="centerX" secondItem="c2c-Nw-Dmx" secondAttribute="centerX" id="0Hl-5Z-LJm"/>
                             <constraint firstItem="Mkl-hd-gCL" firstAttribute="bottom" secondItem="gKC-58-FkJ" secondAttribute="bottom" constant="20" id="9NO-qY-J1y"/>
                             <constraint firstItem="GDi-gE-KoG" firstAttribute="top" secondItem="Mkl-hd-gCL" secondAttribute="top" id="CvG-mb-8Sx"/>
-                            <constraint firstItem="JLK-ha-MOB" firstAttribute="bottom" secondItem="Mkl-hd-gCL" secondAttribute="bottom" id="G3j-pe-SzO"/>
                             <constraint firstItem="Mkl-hd-gCL" firstAttribute="bottom" secondItem="GDi-gE-KoG" secondAttribute="bottom" id="GPs-Wy-EGL"/>
-                            <constraint firstItem="JLK-ha-MOB" firstAttribute="trailing" secondItem="Mkl-hd-gCL" secondAttribute="trailing" id="UgI-x0-esJ"/>
-                            <constraint firstItem="JLK-ha-MOB" firstAttribute="top" secondItem="Mkl-hd-gCL" secondAttribute="top" constant="150" id="gsO-CW-Kru"/>
                             <constraint firstItem="GDi-gE-KoG" firstAttribute="leading" secondItem="Mkl-hd-gCL" secondAttribute="leading" id="h9T-sM-Mw9"/>
-                            <constraint firstItem="JLK-ha-MOB" firstAttribute="leading" secondItem="Mkl-hd-gCL" secondAttribute="leading" id="uKd-5o-vZg"/>
                             <constraint firstItem="Mkl-hd-gCL" firstAttribute="trailing" secondItem="GDi-gE-KoG" secondAttribute="trailing" id="xXz-yo-IK0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mkl-hd-gCL"/>
@@ -96,7 +89,6 @@
                     <navigationItem key="navigationItem" id="24d-80-Xfy"/>
                     <connections>
                         <outlet property="addPlaceButton" destination="gKC-58-FkJ" id="Yca-fn-7fG"/>
-                        <outlet property="addPlaceInfosContainerView" destination="JLK-ha-MOB" id="RHu-SK-TnY"/>
                         <outlet property="mapView" destination="GDi-gE-KoG" id="cUb-cn-6ey"/>
                         <segue destination="vs0-qn-768" kind="presentation" identifier="segueToAddPlace" id="Ag4-lx-WrO"/>
                     </connections>
@@ -506,12 +498,15 @@
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8cf-PJ-tFG">
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="8cf-PJ-tFG">
                                                         <rect key="frame" x="-2" y="33" width="373" height="51"/>
                                                         <color key="tintColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.8495558647" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="Lvq-7K-O7N"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="sliderInteraction:" destination="FiM-Vk-Hwl" eventType="valueChanged" id="ZtO-EO-WA5"/>
+                                                        </connections>
                                                     </slider>
                                                 </subviews>
                                                 <constraints>
@@ -553,7 +548,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PX4-ez-IMJ">
+                                                            <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PX4-ez-IMJ">
                                                                 <rect key="frame" x="320" y="0.0" width="51" height="31"/>
                                                                 <color key="onTintColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.8495558647" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="thumbTintColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -569,7 +564,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YVu-YQ-6pV">
+                                                            <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YVu-YQ-6pV">
                                                                 <rect key="frame" x="320" y="0.0" width="51" height="31"/>
                                                                 <color key="onTintColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.8495558647" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="thumbTintColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -585,7 +580,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YWe-vR-nSd">
+                                                            <switch opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YWe-vR-nSd">
                                                                 <rect key="frame" x="320" y="0.0" width="51" height="31"/>
                                                                 <color key="onTintColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.8495558647" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="thumbTintColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -601,7 +596,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9o6-2S-VLj">
+                                                            <switch opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9o6-2S-VLj">
                                                                 <rect key="frame" x="320" y="0.0" width="51" height="31"/>
                                                                 <color key="onTintColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.8495558647" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="thumbTintColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -617,7 +612,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hZL-rQ-KCa">
+                                                            <switch opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hZL-rQ-KCa">
                                                                 <rect key="frame" x="320" y="0.0" width="51" height="31"/>
                                                                 <color key="onTintColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.8495558647" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="thumbTintColor" red="0.91372549020000005" green="0.92156862750000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -676,15 +671,23 @@
                         <barButtonItem key="rightBarButtonItem" title="Ajouter" id="AGa-I7-pHO">
                             <color key="tintColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.8495558647" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="addPlaceButtonTapped:" destination="FiM-Vk-Hwl" id="11s-9j-nql"/>
+                                <segue destination="HQ7-Uk-B8E" kind="unwind" unwindAction="cancelAddPlaceToMapViewController:" id="aPF-ON-oKZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addPlaceBarButtonItem" destination="AGa-I7-pHO" id="dYh-3I-3Hy"/>
+                        <outlet property="cleanlinessSlider" destination="8cf-PJ-tFG" id="p5P-TT-isi"/>
                         <outlet property="placeAddressLabel" destination="Sh3-zQ-yqc" id="9ae-Pr-P3z"/>
                         <outlet property="placeNameLabel" destination="fng-7X-N0o" id="EVT-VH-NtY"/>
                         <outlet property="scrollView" destination="f4x-fm-VQV" id="zyJ-Z1-End"/>
+                        <outlet property="zoneSegmentedControl" destination="VdI-M6-YDS" id="Ysi-8J-XRF"/>
+                        <outletCollection property="accessoriesSwitchCollection" destination="LrV-mq-04X" collectionClass="NSMutableArray" id="M8M-dt-e6y"/>
+                        <outletCollection property="accessoriesSwitchCollection" destination="PX4-ez-IMJ" collectionClass="NSMutableArray" id="YqB-mM-V6L"/>
+                        <outletCollection property="accessoriesSwitchCollection" destination="YVu-YQ-6pV" collectionClass="NSMutableArray" id="vve-eP-2gE"/>
+                        <outletCollection property="accessoriesSwitchCollection" destination="YWe-vR-nSd" collectionClass="NSMutableArray" id="AKZ-JJ-zxb"/>
+                        <outletCollection property="accessoriesSwitchCollection" destination="9o6-2S-VLj" collectionClass="NSMutableArray" id="BP2-Mi-8eT"/>
+                        <outletCollection property="accessoriesSwitchCollection" destination="hZL-rQ-KCa" collectionClass="NSMutableArray" id="xkW-gl-GXZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fdt-dx-27j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -761,11 +764,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.right.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="bag" catalog="system" width="64" height="64"/>
-        <image name="mappin.and.ellipse" catalog="system" width="58" height="64"/>
-        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
-        <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="rectangle.grid.1x2" catalog="system" width="64" height="50"/>
+        <image name="arrow.right.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="bag" catalog="system" width="128" height="128"/>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
+        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="128" height="81"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="rectangle.grid.1x2" catalog="system" width="128" height="101"/>
     </resources>
 </document>
