@@ -51,7 +51,6 @@ class AddPlaceViewController: UIViewController {
             placeNameLabel.text = placeSearchVC.placeName
             placeAddressLabel.text = placeSearchVC.placeAddress
             placeMark = placeSearchVC.placeMark
-//            print(placeMark)
         }
     }
     
@@ -108,7 +107,7 @@ class AddPlaceViewController: UIViewController {
     }
     
     func savePlaceObject(place: Place) {
-        databaseService.saveData(collectionName: "Places", place: place) { (success) in
+        databaseService.saveData(collectionName: "Places", place: place) { success in
             if success {
                 print("Success saving data to firestore.")
             } else {

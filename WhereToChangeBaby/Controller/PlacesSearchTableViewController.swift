@@ -29,12 +29,9 @@ class PlacesSearchTableViewController: UITableViewController {
 
 extension PlacesSearchTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-//        guard let mapViewRegion = region else { return }
-//        print(mapViewRegion)
         guard let searchBarText = searchController.searchBar.text else { return }
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchBarText
-//        request.region = mapViewRegion
         let search = MKLocalSearch(request: request)
         search.start { (response, _) in
             guard let response = response else { return }

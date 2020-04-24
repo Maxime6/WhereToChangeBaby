@@ -13,11 +13,13 @@
 		AF4224C924488EA0008D589F /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83269B23F09FC900719E79 /* CoreDataTests.swift */; };
 		AF47599323C231EA006989D2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF47599223C231EA006989D2 /* Item.swift */; };
 		AF47599723C28A22006989D2 /* BagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF47599623C28A22006989D2 /* BagViewController.swift */; };
+		AF47628124530CF50064F622 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF47628024530CF50064F622 /* PlaceAnnotation.swift */; };
 		AF487A8F23AD0B17005BF5C5 /* CreateNewBagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF487A8E23AD0B17005BF5C5 /* CreateNewBagViewController.swift */; };
 		AF4BCB7123FBB788008402AA /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BCB7023FBB788008402AA /* AddPlaceViewController.swift */; };
 		AF52952C23FFC3E0001AAE3F /* PlacesSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52952B23FFC3E0001AAE3F /* PlacesSearchTableViewController.swift */; };
+		AFB53083244CFA960062B502 /* PlaceDetailsControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB53082244CFA960062B502 /* PlaceDetailsControllerViewController.swift */; };
+		AFB53085244CFED70062B502 /* DatabaseSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB53084244CFED70062B502 /* DatabaseSessionFake.swift */; };
 		AFCA8050240D107C00B5E952 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFCA804F240D107C00B5E952 /* GoogleService-Info.plist */; };
-		AFE043FF2444389D00BCA230 /* DatabaseSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE043FE2444389D00BCA230 /* DatabaseSessionFake.swift */; };
 		AFE044012444392E00BCA230 /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE044002444392E00BCA230 /* DatabaseProtocol.swift */; };
 		AFE044032444395C00BCA230 /* DatabaseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE044022444395C00BCA230 /* DatabaseSession.swift */; };
 		AFE044052444399C00BCA230 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE044042444399C00BCA230 /* DatabaseService.swift */; };
@@ -29,7 +31,6 @@
 		AFF6214A23A3D3940095448A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFF6214923A3D3940095448A /* Assets.xcassets */; };
 		AFF6214D23A3D3940095448A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF6214B23A3D3940095448A /* LaunchScreen.storyboard */; };
 		AFF6215923A4371E0095448A /* BagsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6215823A4371E0095448A /* BagsListViewController.swift */; };
-		AFF6215B23A437560095448A /* PlacesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6215A23A437560095448A /* PlacesListViewController.swift */; };
 		AFF6216023A43A250095448A /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6215E23A43A250095448A /* CustomCollectionViewCell.swift */; };
 		AFF6216123A43A250095448A /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF6215F23A43A250095448A /* CustomCollectionViewCell.xib */; };
 		EE8D40DE3D1A3CC585FD7A8D /* libPods-WhereToChangeBabyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A41BA59DA2FB7711CF044F45 /* libPods-WhereToChangeBabyTests.a */; };
@@ -55,14 +56,16 @@
 		AF41054124436DED002A54CB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AF47599223C231EA006989D2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		AF47599623C28A22006989D2 /* BagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagViewController.swift; sourceTree = "<group>"; };
+		AF47628024530CF50064F622 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		AF487A8E23AD0B17005BF5C5 /* CreateNewBagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewBagViewController.swift; sourceTree = "<group>"; };
 		AF4BCB7023FBB788008402AA /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceViewController.swift; sourceTree = "<group>"; };
 		AF52952B23FFC3E0001AAE3F /* PlacesSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSearchTableViewController.swift; sourceTree = "<group>"; };
 		AF83269123F09F7C00719E79 /* WhereToChangeBabyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhereToChangeBabyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF83269523F09F7C00719E79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF83269B23F09FC900719E79 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
+		AFB53082244CFA960062B502 /* PlaceDetailsControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailsControllerViewController.swift; sourceTree = "<group>"; };
+		AFB53084244CFED70062B502 /* DatabaseSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseSessionFake.swift; sourceTree = "<group>"; };
 		AFCA804F240D107C00B5E952 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		AFE043FE2444389D00BCA230 /* DatabaseSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseSessionFake.swift; sourceTree = "<group>"; };
 		AFE044002444392E00BCA230 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
 		AFE044022444395C00BCA230 /* DatabaseSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseSession.swift; sourceTree = "<group>"; };
 		AFE044042444399C00BCA230 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
@@ -76,7 +79,6 @@
 		AFF6214C23A3D3940095448A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFF6214E23A3D3940095448A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFF6215823A4371E0095448A /* BagsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagsListViewController.swift; sourceTree = "<group>"; };
-		AFF6215A23A437560095448A /* PlacesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesListViewController.swift; sourceTree = "<group>"; };
 		AFF6215E23A43A250095448A /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		AFF6215F23A43A250095448A /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB8C15C2E92C938EE84C7EF8 /* Pods-WhereToChangeBabyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhereToChangeBabyTests.release.xcconfig"; path = "Target Support Files/Pods-WhereToChangeBabyTests/Pods-WhereToChangeBabyTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,7 +118,7 @@
 			children = (
 				AF83269523F09F7C00719E79 /* Info.plist */,
 				AF83269B23F09FC900719E79 /* CoreDataTests.swift */,
-				AFE043FE2444389D00BCA230 /* DatabaseSessionFake.swift */,
+				AFB53084244CFED70062B502 /* DatabaseSessionFake.swift */,
 			);
 			path = WhereToChangeBabyTests;
 			sourceTree = "<group>";
@@ -172,6 +174,7 @@
 				AFF6214323A3D3900095448A /* Main.storyboard */,
 				AFF6215E23A43A250095448A /* CustomCollectionViewCell.swift */,
 				AFF6215F23A43A250095448A /* CustomCollectionViewCell.xib */,
+				AF47628024530CF50064F622 /* PlaceAnnotation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,13 +182,13 @@
 		AFF6215623A3D57D0095448A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AFF6215A23A437560095448A /* PlacesListViewController.swift */,
 				AFF6215823A4371E0095448A /* BagsListViewController.swift */,
 				AF487A8E23AD0B17005BF5C5 /* CreateNewBagViewController.swift */,
 				AF47599623C28A22006989D2 /* BagViewController.swift */,
 				AF41054124436DED002A54CB /* MapViewController.swift */,
 				AF4BCB7023FBB788008402AA /* AddPlaceViewController.swift */,
 				AF52952B23FFC3E0001AAE3F /* PlacesSearchTableViewController.swift */,
+				AFB53082244CFA960062B502 /* PlaceDetailsControllerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -385,8 +388,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFB53085244CFED70062B502 /* DatabaseSessionFake.swift in Sources */,
 				AF4224C924488EA0008D589F /* CoreDataTests.swift in Sources */,
-				AFE043FF2444389D00BCA230 /* DatabaseSessionFake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,10 +407,11 @@
 				AFED13462425098F0092D98F /* Place.swift in Sources */,
 				AFF6216023A43A250095448A /* CustomCollectionViewCell.swift in Sources */,
 				AFF6213E23A3D3900095448A /* AppDelegate.swift in Sources */,
+				AF47628124530CF50064F622 /* PlaceAnnotation.swift in Sources */,
 				AFE044032444395C00BCA230 /* DatabaseSession.swift in Sources */,
 				AF487A8F23AD0B17005BF5C5 /* CreateNewBagViewController.swift in Sources */,
 				AFF6214023A3D3900095448A /* SceneDelegate.swift in Sources */,
-				AFF6215B23A437560095448A /* PlacesListViewController.swift in Sources */,
+				AFB53083244CFA960062B502 /* PlaceDetailsControllerViewController.swift in Sources */,
 				AF3846E323BFE12400DF89A9 /* Bag.swift in Sources */,
 				AFF6215923A4371E0095448A /* BagsListViewController.swift in Sources */,
 				AF41054224436DED002A54CB /* MapViewController.swift in Sources */,
@@ -450,6 +454,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WC244SYFG3;
 				INFOPLIST_FILE = WhereToChangeBabyTests/Info.plist;
@@ -473,6 +478,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WC244SYFG3;
 				INFOPLIST_FILE = WhereToChangeBabyTests/Info.plist;
@@ -619,7 +625,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.maximetanter.WhereToChangeBaby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -639,7 +645,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.maximetanter.WhereToChangeBaby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -20,6 +20,20 @@
                ReferencedContainer = "container:WhereToChangeBaby.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AF83269023F09F7C00719E79"
+               BuildableName = "WhereToChangeBabyTests.xctest"
+               BlueprintName = "WhereToChangeBabyTests"
+               ReferencedContainer = "container:WhereToChangeBaby.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -38,6 +52,10 @@
                BlueprintName = "WhereToChangeBabyTests"
                ReferencedContainer = "container:WhereToChangeBaby.xcodeproj">
             </BuildableReference>
+            <LocationScenarioReference
+               identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
+               referenceType = "1">
+            </LocationScenarioReference>
          </TestableReference>
       </Testables>
    </TestAction>

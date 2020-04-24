@@ -20,7 +20,7 @@ class DatabaseService {
         databaseSession.addData(collectionName: collectionName, place: place, completionHandler: completionHandler)
     }
     
-    func getData(collectionName: String, completionHandler: @escaping (Bool) -> Void) {
+    func getPlacesData(collectionName: String, completionHandler: @escaping (Result<[Place], Error>) -> Void) {
         databaseSession.getData(collectionName: collectionName, completionHandler: completionHandler)
     }
 

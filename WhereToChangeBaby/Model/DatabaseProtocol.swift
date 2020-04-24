@@ -12,5 +12,7 @@ import Firebase
 protocol DatabaseProtocol {
     func addData(collectionName: String, place: Place, completionHandler: @escaping (Bool) -> Void)
     
-    func getData(collectionName: String, completionHandler: @escaping (Bool) -> Void)
+    func getData(collectionName: String, completionHandler: @escaping (Result<[Place], Error>) -> Void)
+    
+    //Bool, [Place]?
 }

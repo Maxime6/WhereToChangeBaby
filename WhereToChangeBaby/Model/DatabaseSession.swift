@@ -28,44 +28,50 @@ class DatabaseSession: DatabaseProtocol {
                                 "children's toilet": place.accessories.childrensToilet]) { (error) in
             if let e = error {
                 print("There is an issue saving data to firestore, \(e)")
+                completionHandler(false)
             } else {
                 print("Success, \(place)")
+                completionHandler(true)
             }
         }
     }
     
-    func getData(collectionName: String, completionHandler: @escaping (Bool) -> Void) {
+    func getData(collectionName: String, completionHandler: @escaping (Result<[Place], Error>) -> Void) {
         Firestore.firestore()
-            .collection("places")
+            .collection(collectionName)
             .addSnapshotListener { (querySnapShot, error) in
-                var places = [Place]()
+                var placesData = [Place]()
                 if let e = error {
-                    print("Error retrieving data from Firestore, \(e)")
+                    print("There was an issue retrieving data from firestore, \(e)")
+                    // completionhandler
+                    completionHandler(.failure(error!))
                 } else {
                     if let snapShotDocuments = querySnapShot?.documents {
                         for doc in snapShotDocuments {
                             let data = doc.data()
-                            guard let name = data["name"] as? String else { return }
-                            guard let address = data["address"] as? String else { return }
-                            guard let latitude = data["latitude"] as? Double else { return }
-                            guard let longitude = data["longitude"] as? Double else { return }
-                            guard let zone = data["zone"] as? Place.Zone else { return }
-                            guard let cleanliness = data["cleanliness"] as? Int else { return }
-                            guard let changingTable = data["changing table"] as? Bool else { return }
-                            guard let mattress = data["mattress"] as? Bool else { return }
-                            guard let mattressProtection = data["mattressProtection"] as? Bool else { return }
-                            guard let babyDiapers = data["baby diapers"] as? Bool else { return }
-                            guard let wipes = data["wipes"] as? Bool else { return }
-                            guard let childrensToilet = data["children's toilet"] as? Bool else { return }
-                            let newAccessories = Place.Accessories(changingTable: changingTable, mattress: mattress, mattressProtection: mattressProtection, babyDiapers: babyDiapers, wipes: wipes, childrensToilet: childrensToilet)
-                            let newPlace = Place(name: name, address: address, latitude: latitude, longitude: longitude, zone: zone, cleanliness: cleanliness, accessories: newAccessories)
-
-                            places.append(newPlace)
-                            
+                            if let changingTable = data["changing table"] as? Bool,
+                                let mattress = data["mattress"] as? Bool,
+                                let mattressProtection = data["mattress protection"] as? Bool,
+                                let babyDiapers = data["baby diapers"] as? Bool,
+                                let wipes = data["wipes"] as? Bool,
+                                let childrensToilet = data["children's toilet"] as? Bool {
+                                    let newAccessories = Place.Accessories(changingTable: changingTable, mattress: mattress, mattressProtection: mattressProtection, babyDiapers: babyDiapers, wipes: wipes, childrensToilet: childrensToilet)
+                                    if let name = data["name"] as? String,
+                                        let address = data["address"] as? String,
+                                        let latitude = data["latitude"] as? Double,
+                                        let longitude = data["longitude"] as? Double,
+                                        let cleanliness = data["cleanliness"] as? Int,
+                                        let zone = data["zone"] as? String {
+                                        let newPlace = Place(name: name, address: address, latitude: latitude, longitude: longitude, zone: Place.Zone(rawValue: zone)!, cleanliness: cleanliness, accessories: newAccessories)
+                                        placesData.append(newPlace)
+//                                        print("newPlace: \(newPlace)")
+                                        completionHandler(.success(placesData))
+                                }
+                            }
                         }
                     }
                 }
-            }
+        }
     }
     
 }

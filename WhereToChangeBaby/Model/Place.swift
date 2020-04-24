@@ -8,7 +8,15 @@
 
 import Foundation
 
-struct Place {
+struct Place: Equatable {
+    static func == (lhs: Place, rhs: Place) -> Bool {
+        return (lhs.address == rhs.address
+            && lhs.name == rhs.name
+            && lhs.latitude == rhs.latitude
+            && lhs.longitude == rhs.longitude
+            && lhs.zone == rhs.zone)
+    }
+    
     let name: String
     var address: String
     let latitude: Double

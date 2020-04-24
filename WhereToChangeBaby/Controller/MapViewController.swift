@@ -9,7 +9,6 @@
 import UIKit
 import MapKit
 import CoreLocation
-import Firebase
 
 class MapViewController: UIViewController, MKMapViewDelegate {
 
@@ -21,13 +20,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Properties
     
     private var locationManager = CLLocationManager()
-    private let regionInMeters: Double = 10000
+    private let regionInMeters: Double = 5000
     var mapViewRegion: MKCoordinateRegion?
     
     private var selectedPin: MKPlacemark?
     
     var addPlaceVC: AddPlaceViewController?
-    var place: Place?
+    var placeInfos: Place?
     var places: [Place] = []
     
     let databaseService = DatabaseService()
@@ -44,49 +43,22 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Firestore.firestore().collection("Places")
-            .order(by: "name")
-            .addSnapshotListener { (querySnapShot, error) in
-                self.places = []
-                if let e = error {
-                    print("There was an issue retrieving data from firestore, \(e)")
-                } else {
-                    if let snapShotDocuments = querySnapShot?.documents {
-                        for doc in snapShotDocuments {
-                            let data = doc.data()
-                            print("data: \(data)")
-                            print(data["mattress protection"])
-                            
-                            if let changingTable = data["changing table"] as? Bool,
-                                let mattress = data["mattress"] as? Bool,
-                                let mattressProtection = data["mattress protection"] as? Bool,
-                                let babyDiapers = data["baby diapers"] as? Bool,
-                                let wipes = data["wipes"] as? Bool,
-                                let childrensToilet = data["children's toilet"] as? Bool {
-                                    let newAccessories = Place.Accessories(changingTable: changingTable, mattress: mattress, mattressProtection: mattressProtection, babyDiapers: babyDiapers, wipes: wipes, childrensToilet: childrensToilet)
-                                    if let name = data["name"] as? String,
-                                        let address = data["address"] as? String,
-                                        let latitude = data["latitude"] as? Double,
-                                        let longitude = data["longitude"] as? Double,
-                                        let cleanliness = data["cleanliness"] as? Int,
-                                        let zone = data["zone"] as? String {
-                                        let newPlace = Place(name: name, address: address, latitude: latitude, longitude: longitude, zone: Place.Zone(rawValue: zone)!, cleanliness: cleanliness, accessories: newAccessories)
-                                        self.places.append(newPlace)
-                                        print("newplace : \(newPlace)")
-                                        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                                        let placeMark = MKPlacemark(coordinate: coordinate)
-                                        self.selectedPin = placeMark
-                                        let annotation = MKPointAnnotation()
-                                        annotation.title = self.selectedPin?.title
-                                        annotation.coordinate = coordinate
-                                        self.mapView.addAnnotation(annotation)
-                                        print(placeMark)
-
-                                }
-                            }
-                        }
-                    }
+        
+        databaseService.getPlacesData(collectionName: "Places") { (result) in
+            switch result {
+            case .success(let places):
+                self.places = places
+                for place in self.places {
+                    let coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+                    let annotation = PlaceAnnotation()
+                    annotation.title = place.name
+                    annotation.coordinate = coordinate
+                    annotation.place = place
+                    self.mapView.addAnnotation(annotation)
                 }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
     
@@ -100,16 +72,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         if let addPlaceVC = segue.source as? AddPlaceViewController {
             addPlaceVC.createPlaceObject()
-//            place = addPlaceVC.place
-//            guard let placeInfos = place else { return }
-            
-            selectedPin = addPlaceVC.placeMark
-            guard let selectedPin = selectedPin else { return }
-
-            let annotation = MKPointAnnotation()
-            annotation.title = selectedPin.title
-            annotation.coordinate = selectedPin.coordinate
-            mapView.addAnnotation(annotation)
         }
     }
     
@@ -123,7 +85,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         if let location = locationManager.location?.coordinate {
             let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
             mapView.setRegion(region, animated: true)
-//            mapViewRegion = region
         }
     }
     
@@ -160,23 +121,45 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         if segue.identifier == "segueToAddPlace" {
             let addPlaceVC = segue.destination as? AddPlaceViewController
             addPlaceVC?.mapViewRegion = mapViewRegion
+        } else if segue.identifier == "segueToPlaceDetails" {
+            let placeDetailsVC = segue.destination as? PlaceDetailsControllerViewController
+            placeDetailsVC?.place = placeInfos
         }
     }
+
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation is MKPointAnnotation else { return nil }
 
         let identifier = "Annotation"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        var view: MKMarkerAnnotationView
 
-        if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView!.canShowCallout = true
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(
+          withIdentifier: identifier) as? MKMarkerAnnotationView {
+          dequeuedView.annotation = annotation
+          view = dequeuedView
         } else {
-            annotationView!.annotation = annotation
-        }
 
-        return annotationView
+          view = MKMarkerAnnotationView(
+            annotation: annotation,
+            reuseIdentifier: identifier)
+          view.canShowCallout = true
+          view.calloutOffset = CGPoint(x: -5, y: 5)
+            let infosButton = UIButton(type: .detailDisclosure)
+          view.rightCalloutAccessoryView = infosButton
+            view.glyphImage = UIImage(named: "baby")
+            view.glyphImage?.withTintColor(UIColor(displayP3Red: 175/255, green: 82/255, blue: 22/255, alpha: 0.85))
+        }
+        return view
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let place = view.annotation as? PlaceAnnotation
+        placeInfos = place?.place
+        if control == view.rightCalloutAccessoryView {
+            performSegue(withIdentifier: "segueToPlaceDetails", sender: self)
+        }
+        
     }
     
 
