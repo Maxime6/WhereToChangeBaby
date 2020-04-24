@@ -11,15 +11,18 @@ import UIKit
 class CreateNewBagViewController: UIViewController {
 
     //MARK: - Outlets
+    
     @IBOutlet weak private var addItemBarButtonItem: UIBarButtonItem!
     @IBOutlet weak private var tableView: UITableView!
     @IBOutlet weak private var bagNameTextField: UITextField!
     @IBOutlet weak private var createBagButton: UIButton!
     
     //MARK: - Properties
+    
     private var itemsList = [String]()
     
     //MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +31,7 @@ class CreateNewBagViewController: UIViewController {
     }
     
     //MARK: - Class Methods
+    
     private func setUpCreateButton() {
         createBagButton.layer.cornerRadius = 18.0
         createBagButton.layer.borderWidth = 2
@@ -46,6 +50,7 @@ class CreateNewBagViewController: UIViewController {
     }
 
     //MARK: - Actions
+    
     @IBAction private func addItem(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Ajouter un élément", message: "", preferredStyle: .alert)
         alert.addTextField { (textField) in

@@ -12,8 +12,8 @@ import MapKit
 class PlacesSearchTableViewController: UITableViewController {
     
     // MARK: - Properties
+    
     private var matchingItems: [MKMapItem] = []
-    var region: MKCoordinateRegion?
     var placeName = ""
     var placeAddress = ""
     var placeMark: MKPlacemark?

@@ -11,17 +11,20 @@ import UIKit
 class BagViewController: UIViewController {
 
     // MARK: - Outlets
+    
     @IBOutlet weak private var tableView: UITableView!
     @IBOutlet weak private var bagNameLabel: UILabel!
     @IBOutlet weak private var addIemBarButtonItem: UIBarButtonItem!
     @IBOutlet weak private var editBagNameButton: UIButton!
     
     // MARK: - Properties
+    
     private var bagList = Bag.fetchAll()
     var bagData: Bag?
     private var items = [Item]()
     
     // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bagNameLabel.text = bagData?.name
@@ -30,6 +33,7 @@ class BagViewController: UIViewController {
     }
     
     // MARK: - Actions
+    
     @IBAction private func addItem(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Ajouter un élément", message: "", preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -65,6 +69,7 @@ class BagViewController: UIViewController {
     }
     
     // MARK: - Class Methods
+    
     private func setUpBagNameLabelParameters() {
         bagNameLabel.layer.cornerRadius = 10
         bagNameLabel.layer.shadowColor = UIColor(ciColor: .black).cgColor

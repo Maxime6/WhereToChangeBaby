@@ -11,6 +11,7 @@ import Firebase
 
 class DatabaseSession: DatabaseProtocol {
     
+    // Add data method
     func addData(collectionName: String, place: Place, completionHandler: @escaping (Bool) -> Void) {
         Firestore.firestore()
             .collection(collectionName)
@@ -36,6 +37,7 @@ class DatabaseSession: DatabaseProtocol {
         }
     }
     
+    // Get data method
     func getData(collectionName: String, completionHandler: @escaping (Result<[Place], Error>) -> Void) {
         Firestore.firestore()
             .collection(collectionName)

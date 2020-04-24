@@ -13,15 +13,17 @@ import Firebase
 class AddPlaceViewController: UIViewController {
     
     // MARK: - Outlets
+    
     @IBOutlet weak private var scrollView: UIScrollView!
     @IBOutlet weak private var addPlaceBarButtonItem: UIBarButtonItem!
     @IBOutlet weak private var placeNameLabel: UILabel!
     @IBOutlet weak private var placeAddressLabel: UILabel!
-    @IBOutlet weak var zoneSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var cleanlinessSlider: UISlider!
-    @IBOutlet var accessoriesSwitchCollection: [UISwitch]!
+    @IBOutlet weak private var zoneSegmentedControl: UISegmentedControl!
+    @IBOutlet weak private var cleanlinessSlider: UISlider!
+    @IBOutlet private var accessoriesSwitchCollection: [UISwitch]!
     
     // MARK: - Properties
+    
     let databaseService = DatabaseService()
     
     var mapViewRegion: MKCoordinateRegion?
@@ -29,11 +31,9 @@ class AddPlaceViewController: UIViewController {
     
     var placeMark: MKPlacemark?
     
-    var switchTag: Int?
-    
     var place: Place?
-    var placeAccessories: Place.Accessories?
-    var sliderValue = 5
+    private var placeAccessories: Place.Accessories?
+    private var sliderValue = 5
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -60,6 +60,7 @@ class AddPlaceViewController: UIViewController {
     }
     
     // MARK: - Class Methods
+    
     private func setUpPlaceSearchTable() {
         let placesSearchTable = storyboard?.instantiateViewController(identifier: "PlacesSearchTableViewController") as? PlacesSearchTableViewController
         resultSearchController = UISearchController(searchResultsController: placesSearchTable)
@@ -71,7 +72,6 @@ class AddPlaceViewController: UIViewController {
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         resultSearchController?.obscuresBackgroundDuringPresentation = true
         definesPresentationContext = true
-        placesSearchTable?.region = mapViewRegion
     }
     
     func createPlaceObject() {
@@ -106,7 +106,7 @@ class AddPlaceViewController: UIViewController {
         
     }
     
-    func savePlaceObject(place: Place) {
+    private func savePlaceObject(place: Place) {
         databaseService.saveData(collectionName: "Places", place: place) { success in
             if success {
                 print("Success saving data to firestore.")

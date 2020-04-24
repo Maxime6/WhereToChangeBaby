@@ -25,11 +25,8 @@ class BagsListViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = editButtonItem
         
-        // voir storyboard
         collectionView.dataSource = self
         collectionView.delegate = self
-//        collectionView.dragInteractionEnabled = true
-//        collectionView.dragDelegate = self
         
         let nib = UINib.init(nibName: "CustomCollectionViewCell", bundle: nil)
         self.collectionView.register(nib, forCellWithReuseIdentifier: "bagCell")
@@ -45,6 +42,7 @@ class BagsListViewController: UIViewController {
     }
     
     // MARK: - Actions
+    
     @IBAction private func trashButtonTapped(_ sender: Any) {
         if let selectedCells = collectionView.indexPathsForSelectedItems {
             let items = selectedCells.map { $0.item }.sorted().reversed()
@@ -59,6 +57,7 @@ class BagsListViewController: UIViewController {
     }
     
     // MARK: - Class Methods
+    
     private func createNewBagButtonSettings() {
         createNewBagButton.layer.borderWidth = 2.0
         createNewBagButton.layer.cornerRadius = 18.0

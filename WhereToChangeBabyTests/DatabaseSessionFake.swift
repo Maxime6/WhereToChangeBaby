@@ -74,24 +74,5 @@ final class DatabaseServiceTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 0.01)
     }
-    
-//    func testSaveData_WhenDataIsCorrect_ThenSouldSaveData() {
-//        guard let zone1 = Place.Zone(rawValue: "Homme") else { return }
-//        let accessories1 = Place.Accessories(changingTable: true, mattress: true, mattressProtection: true, babyDiapers: false, wipes: false, childrensToilet: false)
-//        let place1 = Place(name: "Lorient", address: "Rue Professeur Lépine", latitude: -3.0, longitude: -4.0, zone: zone1, cleanliness: 7, accessories: accessories1)
-//        
-//        let sut: DatabaseService = DatabaseService(databaseSession: DatabaseStub([]))
-//        let collectionName = "Places"
-//        let expectation = XCTestExpectation(description: "Wait for queue change")
-//        sut.saveData(collectionName: collectionName, place: place1) { (result) in
-//            guard case .success(let place) = result else {
-//                XCTFail("Saving data success tests fails")
-//                return
-//            }
-//            XCTAssertTrue(place == [place1])
-//            expectation.fulfill()
-//        }
-//        wait(for: [expectation], timeout: 0.01)
-//    }
 
 }
